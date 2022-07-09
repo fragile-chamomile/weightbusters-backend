@@ -9,6 +9,7 @@ const swaggerJsDoc = require("swagger-jsdoc");
 
 const authRouter = require("./routes/api/auth");
 const usersRouter = require("./routes/api/users");
+const daysRouter = require("./routes/api/days");
 
 const options = {
 	definition: {
@@ -42,6 +43,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 app.use("/auth", authRouter);
 app.use("/users", usersRouter);
+app.use("/days", daysRouter);
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Not found" });
