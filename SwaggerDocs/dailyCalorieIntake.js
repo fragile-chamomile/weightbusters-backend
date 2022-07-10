@@ -1,43 +1,96 @@
 /**
  * @swagger
  * tags:
- *   name: Auth
- *   description: The auth managing API
+ *   name: Daily calorie intake
+ *   description: The daily calorie intake managing API
  */
 
 /**
  * @swagger
- * /auth/signup:
+ * /dailyCalorieIntake:
  *   post:
- *     summary: Create a new user
- *     tags: [Auth]
+ *     summary: Daily calorie intake for an unregistered user
+ *     tags: [Daily calorie intake]
  *     requestBody:
  *       required: true
- *       description: Registration's object
+ *       description: Daily calorie intake object
  *       content:
  *         application/json:
  *           schema:
  *             required:
- *               - name
- *               - email
- *               - password
+ *               - height
+ *               - age
+ *               - currentWeight
+ *               - desiredWeight
+ *               - bloodType
  *             properties:
- *               name:
- *                 type: string
- *                 description: The user name
- *               email:
- *                 type: string
- *                 description: The user email
- *               password:
- *                 type: string
- *                 description: The user password
+ *               height:
+ *                 type: number
+ *                 description: The user height
+ *               age:
+ *                 type: number
+ *                 description: The user age
+ *               currentWeight:
+ *                 type: number
+ *                 description: The user current weight
+ *               desiredWeight:
+ *                 type: number
+ *                 description: The user desired weight
+ *               bloodType:
+ *                 type: number
+ *                 description: The user blood type
  *     responses:
- *       201:
- *         description: The user was successfully created.
+ *       200:
+ *         description: The information was successfully created.
  *       400:
- *         description: Missing some field.
- *       409:
- *         description: The user with this email already registered.
+ *         description: Missing some field. All form fields are required.
+ *       500:
+ *         description: Some server error.
+ */
+
+/**
+ * @swagger
+ * /dailyCalorieIntake/private:
+ *   post:
+ *     security:
+ *      - bearerAuth: []
+ *     summary: Daily calorie intake for a registered user
+ *     tags: [Daily calorie intake]
+ *     requestBody:
+ *       required: true
+ *       description: Daily calorie intake object
+ *       content:
+ *         application/json:
+ *           schema:
+ *             required:
+ *               - height
+ *               - age
+ *               - currentWeight
+ *               - desiredWeight
+ *               - bloodType
+ *             properties:
+ *               height:
+ *                 type: number
+ *                 description: The user height
+ *               age:
+ *                 type: number
+ *                 description: The user age
+ *               currentWeight:
+ *                 type: number
+ *                 description: The user current weight
+ *               desiredWeight:
+ *                 type: number
+ *                 description: The user desired weight
+ *               bloodType:
+ *                 type: number
+ *                 description: The user blood type
+ *     responses:
+ *       200:
+ *         description: The information was successfully added.
+ *       400:
+ *         description: Missing some field. All form fields are required.
+ *       401:
+ *         description: The user is not authorized or Missing header with authorization token.
  *       500:
  *         description: Some server error.
  */

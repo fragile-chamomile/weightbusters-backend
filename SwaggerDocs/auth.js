@@ -38,11 +38,39 @@
  *         password:
  *           type: string
  *           description: The user password
+ *         height:
+ *           type: number
+ *           description: The user height
+ *         age:
+ *            type: number
+ *            description: The user age
+ *         currentWeight:
+ *            type: number
+ *            description: The user current weight
+ *         desiredWeight:
+ *            type: number
+ *            description: The user desired weight
+ *         bloodType:
+ *             type: number
+ *             description: The user blood type
+ *         dailyCalorieIntake:
+ *             type: number
+ *             description: The user daily calorie intake
+ *         notRecommendedProducts:
+ *             type: array
+ *             description: Not recommended products
  *       example:
  *         id: d5fE_asz
  *         name: Viola Brown
  *         email: brown.v@gmail.com
  *         password: example2022
+ *         height: 160
+ *         age: 30
+ *         currentWeight: 58
+ *         desiredWeight: 50
+ *         bloodType: 1
+ *         dailyCalorieIntake: 1189
+ *         notRecommendedProducts: [зерновые, молочные, мучные, яйца]
  */
 
 /**
