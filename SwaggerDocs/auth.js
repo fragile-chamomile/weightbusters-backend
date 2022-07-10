@@ -53,6 +53,7 @@
  *     tags: [Auth]
  *     requestBody:
  *       required: true
+ *       description: Registration's object
  *       content:
  *         application/json:
  *           schema:
@@ -89,6 +90,7 @@
  *     tags: [Auth]
  *     requestBody:
  *       required: true
+ *       description: Authentication object
  *       content:
  *         application/json:
  *           schema:

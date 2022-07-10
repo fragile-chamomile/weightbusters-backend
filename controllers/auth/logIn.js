@@ -22,6 +22,7 @@ const logIn = async (req, res) => {
 	res.json({
 		status: "success",
 		code: 200,
+		message: "Authorization is successfully",
 		data: {
 			token,
 			user: {

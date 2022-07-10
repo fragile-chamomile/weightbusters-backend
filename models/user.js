@@ -23,21 +23,27 @@ const userSchema = Schema(
 		},
 		height: {
 			type: Number,
+			default: null,
 		},
 		age: {
 			type: Number,
+			default: null,
 		},
 		currentWeight: {
 			type: Number,
+			default: null,
 		},
 		desiredWeight: {
 			type: Number,
+			default: null,
 		},
 		bloodType: {
 			type: Number,
+			default: null,
 		},
-		dailyNorm: {
+		dailyCalorieIntake: {
 			type: Number,
+			default: null,
 		},
 		notRecommendedProducts: {
 			type: Array,
@@ -61,11 +67,16 @@ const userSchema = Schema(
 const User = model("user", userSchema);
 
 const joiSignUpSchema = Joi.object({
-	name: Joi.string(),
+	name: Joi.string().min(3).max(30).required(),
 	password: Joi.string().min(6).required(),
 	email: Joi.string()
 		.email({ minDomainSegments: 2, tlds: { allow: ["com", "net", "ua"] } })
 		.required(),
+	height: Joi.number().min(100).max(250).optional(),
+	age: Joi.number().integer().positive().min(16).max(120).optional(),
+	currentWeight: Joi.number().integer().positive().min(30).max(300).optional(),
+	desiredWeight: Joi.number().integer().positive().min(20).max(300).optional(),
+	bloodType: Joi.number().integer().positive().min(1).max(4).optional(),
 });
 
 const joiLogInSchema = Joi.object({
@@ -81,9 +92,18 @@ const joiReVerificationSchema = Joi.object({
 		.required(),
 });
 
+const joiDailyCalorieIntakeSchema = Joi.object({
+	height: Joi.number().min(100).max(250).required(),
+	age: Joi.number().integer().positive().min(16).max(120).required(),
+	currentWeight: Joi.number().integer().positive().min(30).max(300).required(),
+	desiredWeight: Joi.number().integer().positive().min(20).max(300).required(),
+	bloodType: Joi.number().integer().positive().min(1).max(4).required(),
+});
+
 module.exports = {
 	User,
 	joiSignUpSchema,
 	joiLogInSchema,
 	joiReVerificationSchema,
+	joiDailyCalorieIntakeSchema,
 };
