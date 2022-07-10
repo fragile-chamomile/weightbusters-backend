@@ -10,7 +10,7 @@ const getProductsFromQueryParam = async (req, res, next) => {
     if (products.length === 0) {
       return res.json({ message: "No matches found" });
     } else if (!products) {
-      return res.status(400).json(errorOrResponce("400", "Bad request"));
+      return res.status(400).json({status: 400, body: "Bad Request"});
     }
     res.status(200).json(products);
   } catch (err) {
