@@ -1,5 +1,12 @@
 /**
  * @swagger
+ * tags:
+ *   name: Products
+ *   description: The products managing API
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     Product:
@@ -28,12 +35,12 @@
  *           description: calories of product
  *         groupBloodNotAllowed:
  *           type: Array
- *           description: a list of blood types according to which this product is desirable or undesirable for consumption 
+ *           description: a list of blood types according to which this product is desirable or undesirable for consumption
  *       example:
- *         _id: 5d51694802b2373622ff553b
+ *         id: 5d51694802b2373622ff553b
  *         categories: ["яйца"]
  *         weight: 100
- *         title:{ru: "Яйцо куриное (желток сухой)", ua: "Яйце куряче (жовток сухий)"}
+ *         title: {ru: "Яйцо куриное (желток сухой)", ua: "Яйце куряче (жовток сухий)"}
  *         calories: 623
  *         groupBloodNotAllowed: [null, true, false, false, false]
  */
@@ -45,7 +52,7 @@
  *     security:
  *      - bearerAuth: []
  *     summary: Get product from query
- *     tags: [Product]
+ *     tags: [Products]
  *     parameters:
  *       - name: query
  *         required: true
