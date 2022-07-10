@@ -11,7 +11,7 @@ const daySchema = Schema(
       type: Schema.Types.ObjectId,
       ref: 'user',
     },
-    item: {
+    items: {
       type: Array,
       default: [],
     }
@@ -26,7 +26,7 @@ const joiDaySchema = Joi.object({
   date: Joi.string(),
   item: Joi.object().keys({
     weight: Joi.number().required(),
-    productName: Joi.string().required(),
+    name: Joi.string().required(),
   }),
 });
 
