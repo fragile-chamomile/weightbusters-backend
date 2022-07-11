@@ -3,6 +3,6 @@ const router = express.Router();
 const { getProductsFromQueryParam } = require("../../controllers");
 const {  auth, ctrlWrapper } = require("../../middlewares");
 
-router.post("/:query", auth, ctrlWrapper(getProductsFromQueryParam));
+router.get("/", auth, ctrlWrapper(getProductsFromQueryParam));
 
 module.exports = router;

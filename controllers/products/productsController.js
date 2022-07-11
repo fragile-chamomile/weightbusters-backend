@@ -1,9 +1,13 @@
 const { Product } = require("../../models/product");
 
 const getProductsFromQueryParam = async (req, res) => {
-  const { query } = req.params;
+  const { query } = req.query;
   const products = await Product.find({
-    "title.ua": { $regex: `${query}`, $options: "i" },
+    $or: [
+      { "title.ua": { $regex: `${query}`, $options: "i" } },
+      { "title.ru": { $regex: `${query}`, $options: "i" } },
+      { "title.en": { $regex: `${query}`, $options: "i" } },
+    ],
   });
   if (products.length === 0) {
     return res.json({ message: "No matches found" });
