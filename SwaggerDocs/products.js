@@ -47,7 +47,7 @@
 
 /**
  * @swagger
- * /products/{query}:
+ * /products?query={value}:
  *   get:
  *     security:
  *      - bearerAuth: []
@@ -56,7 +56,7 @@
  *     parameters:
  *       - name: query
  *         required: true
- *         in: path
+ *         in: query
  *         description: Query for find product by name
  *     responses:
  *       200:
