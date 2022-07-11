@@ -10,6 +10,7 @@ const swaggerJsDoc = require("swagger-jsdoc");
 const authRouter = require("./routes/api/auth");
 const usersRouter = require("./routes/api/users");
 const productRouter = require("./routes/api/product");
+const daysRouter = require("./routes/api/days");
 const dailyCalorieIntakeRouter = require("./routes/api/dailyCalorieIntakes");
 
 const options = {
@@ -45,6 +46,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use("/auth", authRouter);
 app.use("/users", usersRouter);
 app.use("/products", productRouter);
+app.use("/days", daysRouter);
 app.use("/dailyCalorieIntakes", dailyCalorieIntakeRouter);
 
 app.use((req, res) => {
