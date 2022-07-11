@@ -73,7 +73,7 @@ const joiSignUpSchema = Joi.object({
 		.email({ minDomainSegments: 2, tlds: { allow: ["com", "net", "ua"] } })
 		.required(),
 	height: Joi.number().min(100).max(250).optional(),
-	age: Joi.number().integer().positive().min(16).max(120).optional(),
+	age: Joi.number().integer().positive().min(14).max(120).optional(),
 	currentWeight: Joi.number().integer().positive().min(30).max(300).optional(),
 	desiredWeight: Joi.number().integer().positive().min(20).max(300).optional(),
 	bloodType: Joi.number().integer().positive().min(1).max(4).optional(),
