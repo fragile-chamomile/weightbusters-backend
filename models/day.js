@@ -23,35 +23,19 @@ const daySchema = Schema(
 const Day = model("day", daySchema);
 
 const joiDaySchema = Joi.object({
-  date: Joi.string(),
+  date: Joi.date(),
   item: Joi.object().keys({
     weight: Joi.number().required(),
     name: Joi.string().required(),
   }),
 });
 
+const joiGetDaySchema = Joi.object({
+  date: Joi.date(),
+});
 
 module.exports = {
   Day,
   joiDaySchema,
-};
-
-
-
-const data = [
-  {
-    id: '12345',
-    createdAt: '2022-07-07T17:48:38.943+00:00',
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: 'user',
-    },
-    item: [
-      {
-        weight: 250,
-        productName: 'tomato',
-        call: 450,
-      }
-    ]
-  }
-]
+  joiGetDaySchema,
+}

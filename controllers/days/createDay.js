@@ -9,8 +9,8 @@ const createDay = async (req, res) => {
   const { name } = req.body.item;
   const product = await Product.findOne({ "title.ru": name });
   const calories = (body.item.weight / 100) * product.calories;
-  // const owner = "62c9420627d43702489bde8b";
   const existDay = await Day.findOne({ date, owner });
+  
   let day;
   existDay
     ? (day = await Day.findOneAndUpdate(
