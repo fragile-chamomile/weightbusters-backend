@@ -1,6 +1,6 @@
 const express = require("express");
 const { auth, validation, ctrlWrapper } = require("../../middlewares");
-const { joiDaySchema } = require("../../models/day");
+const { joiDaySchema, joiGetDaySchema } = require("../../models/day");
 const { days: ctrl } = require("../../controllers");
 
 const router = express.Router();
@@ -8,6 +8,7 @@ const router = express.Router();
 router.get(
   "/user",
   auth,
+  validation(joiGetDaySchema),
   ctrlWrapper(ctrl.getOneDay)
 );
 
@@ -21,6 +22,7 @@ router.post(
 router.post(
   "/user/product/:id",
   auth,
+  validation(joiGetDaySchema),
   ctrlWrapper(ctrl.deleteEatenProduct)
 );
 
