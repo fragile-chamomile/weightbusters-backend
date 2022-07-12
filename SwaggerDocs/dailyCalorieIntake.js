@@ -7,7 +7,7 @@
 
 /**
  * @swagger
- * /dailyCalorieIntake:
+ * /daily-calorie-intake:
  *   post:
  *     summary: Daily calorie intake for an unregistered user
  *     tags: [Daily calorie intake]
@@ -50,7 +50,7 @@
 
 /**
  * @swagger
- * /dailyCalorieIntake/private:
+ * /daily-calorie-intake/private:
  *   post:
  *     security:
  *      - bearerAuth: []
