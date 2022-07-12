@@ -2,16 +2,16 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
-require("./config/passport");
+require("./src/config/passport");
 
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 
-const authRouter = require("./routes/api/auth");
-const usersRouter = require("./routes/api/users");
-const productRouter = require("./routes/api/product");
-const daysRouter = require("./routes/api/days");
-const dailyCalorieIntakeRouter = require("./routes/api/daily-calorie-intakes");
+const authRouter = require("./src/routes/api/auth");
+const usersRouter = require("./src/routes/api/users");
+const productRouter = require("./src/routes/api/product");
+const daysRouter = require("./src/routes/api/days");
+const dailyCalorieIntakeRouter = require("./src/routes/api/daily-calorie-intakes");
 
 const options = {
 	definition: {
