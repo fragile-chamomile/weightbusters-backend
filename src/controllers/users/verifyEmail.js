@@ -12,9 +12,7 @@ const verifyEmail = async (req, res) => {
 		verificationToken: null,
 	});
 
-	res.json({
-		message: "Verification successful",
-	});
+	res.redirect("https://weightbusters-api.herokuapp.com/api-docs/#/");
 };
 
 module.exports = verifyEmail;

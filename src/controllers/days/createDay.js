@@ -6,20 +6,36 @@ const createDay = async (req, res) => {
   const body = req.body;
   const owner = req.user.id;
   const date = new Date(body.date).toLocaleDateString();
-  const { name } = req.body.item;
-  const product = await Product.findOne({ "title.ru": name });
+  const { name, weight } = req.body.item;
+  const product = await Product.findOne({
+    $or: [{ "title.ua": name }, { "title.ru": name }, { "title.en": name }],
+  });
   const calories = (body.item.weight / 100) * product.calories;
   const existDay = await Day.findOne({ date, owner });
-  
+
   let day;
   existDay
     ? (day = await Day.findOneAndUpdate(
         { _id: existDay.id },
-      { $push: { items: { ...body.item, calories, id: randomUUID() } } },
+        {
+          $push: {
+            items: {
+              weight,
+              name: { ...product.title },
+              calories,
+              id: randomUUID(),
+            },
+          },
+        },
         { new: true }
       ))
     : (day = await Day.create({
-      items: { ...body.item, calories, id: randomUUID() },
+        items: {
+          weight,
+          name: { ...product.title },
+          calories,
+          id: randomUUID(),
+        },
         date,
         owner,
       }));
