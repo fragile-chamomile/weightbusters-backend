@@ -19,7 +19,7 @@ const signUp = async (req, res) => {
 	} = req.body;
 	const result = await User.findOne({ email });
 	if (result) {
-		throw new Conflict(`User with this email=${email} already registered`);
+		throw new Conflict(`User with this email ${email} already registered`);
 	}
 	const verificationToken = v4();
 	const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));

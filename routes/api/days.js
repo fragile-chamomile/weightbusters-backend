@@ -5,25 +5,25 @@ const { days: ctrl } = require("../../controllers");
 
 const router = express.Router();
 
-router.get(
-  "/user",
-  auth,
-  validation(joiGetDaySchema),
-  ctrlWrapper(ctrl.getOneDay)
+router.post(
+	"/user",
+	auth,
+	validation(joiGetDaySchema),
+	ctrlWrapper(ctrl.getOneDay)
 );
 
 router.post(
-  "/create",
-  auth,
-  validation(joiDaySchema),
-  ctrlWrapper(ctrl.createDay)
+	"/create",
+	auth,
+	validation(joiDaySchema),
+	ctrlWrapper(ctrl.createDay)
 );
 
 router.post(
-  "/user/product/:id",
-  auth,
-  validation(joiGetDaySchema),
-  ctrlWrapper(ctrl.deleteEatenProduct)
+	"/user/product/:id",
+	auth,
+	validation(joiGetDaySchema),
+	ctrlWrapper(ctrl.deleteEatenProduct)
 );
 
 module.exports = router;

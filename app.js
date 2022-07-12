@@ -11,7 +11,7 @@ const authRouter = require("./routes/api/auth");
 const usersRouter = require("./routes/api/users");
 const productRouter = require("./routes/api/product");
 const daysRouter = require("./routes/api/days");
-const dailyCalorieIntakeRouter = require("./routes/api/dailyCalorieIntakes");
+const dailyCalorieIntakeRouter = require("./routes/api/daily-calorie-intakes");
 
 const options = {
 	definition: {
@@ -47,7 +47,7 @@ app.use("/auth", authRouter);
 app.use("/users", usersRouter);
 app.use("/products", productRouter);
 app.use("/days", daysRouter);
-app.use("/dailyCalorieIntakes", dailyCalorieIntakeRouter);
+app.use("/daily-calorie-intakes", dailyCalorieIntakeRouter);
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Not found" });
