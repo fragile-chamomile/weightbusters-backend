@@ -9,12 +9,15 @@ const swaggerJsDoc = require("swagger-jsdoc");
 
 const authRouter = require("./routes/api/auth");
 const usersRouter = require("./routes/api/users");
+const productRouter = require("./routes/api/product");
+const daysRouter = require("./routes/api/days");
+const dailyCalorieIntakeRouter = require("./routes/api/dailyCalorieIntakes");
 
 const options = {
 	definition: {
 		openapi: "3.0.0",
 		info: {
-			title: "Library API",
+			title: "SlimMom API",
 			version: "1.0.0",
 			description: "A simple Express Library API",
 		},
@@ -42,6 +45,9 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 app.use("/auth", authRouter);
 app.use("/users", usersRouter);
+app.use("/products", productRouter);
+app.use("/days", daysRouter);
+app.use("/dailyCalorieIntakes", dailyCalorieIntakeRouter);
 
 app.use((req, res) => {
 	res.status(404).json({ message: "Not found" });

@@ -27,22 +27,63 @@
  *         - password
  *       properties:
  *         id:
- *           type: string
+ *           type: String
+ *           example: 62cc0f7fa9c8032807cb8cf6
  *           description: The auto-generated id of the user
  *         name:
- *           type: string
+ *           type: String
+ *           minLength: 3
+ *           maxLength: 30
+ *           example: Camila Brown
  *           description: The user name
  *         email:
- *           type: string
+ *           type: String
+ *           allow: com, net, ua
+ *           example: brown.c@gmail.com
  *           description: The user email
  *         password:
- *           type: string
+ *           type: String
+ *           minLength: 6
+ *           example: example2022
  *           description: The user password
- *       example:
- *         id: d5fE_asz
- *         name: Viola Brown
- *         email: brown.v@gmail.com
- *         password: example2022
+ *         height:
+ *           type: Number
+ *           min: 100
+ *           max: 250
+ *           example: 172
+ *           description: The user height
+ *         age:
+ *           type: Number
+ *           min: 14
+ *           max: 120
+ *           example: 30
+ *           description: The user age
+ *         currentWeight:
+ *           type: Number
+ *           min: 30
+ *           max: 300
+ *           example: 84
+ *           description: The user current weight
+ *         desiredWeight:
+ *           type: Number
+ *           min: 20
+ *           max: 300
+ *           example: 64
+ *           description: The user desired weight
+ *         bloodType:
+ *           type: Number
+ *           min: 1
+ *           max: 4
+ *           example: 3
+ *           description: The user blood type
+ *         dailyCalorieIntake:
+ *           type: Number
+ *           example: 1189
+ *           description: The user daily calorie intake
+ *         notRecommendedProducts:
+ *           type: Array
+ *           example: [зерновые, молочные, мучные, яйца]
+ *           description: Not recommended products
  */
 
 /**
@@ -53,6 +94,7 @@
  *     tags: [Auth]
  *     requestBody:
  *       required: true
+ *       description: Registration's object
  *       content:
  *         application/json:
  *           schema:
@@ -89,6 +131,7 @@
  *     tags: [Auth]
  *     requestBody:
  *       required: true
+ *       description: Authentication object
  *       content:
  *         application/json:
  *           schema:

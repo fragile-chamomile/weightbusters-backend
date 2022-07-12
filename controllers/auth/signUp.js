@@ -7,7 +7,16 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const { User } = require("../../models/user");
 
 const signUp = async (req, res) => {
-	const { name, email, password } = req.body;
+	const {
+		name,
+		email,
+		password,
+		height,
+		age,
+		currentWeight,
+		desiredWeight,
+		bloodType,
+	} = req.body;
 	const result = await User.findOne({ email });
 	if (result) {
 		throw new Conflict(`User with this email=${email} already registered`);
@@ -19,6 +28,11 @@ const signUp = async (req, res) => {
 		name,
 		email,
 		password: hashPassword,
+		height,
+		age,
+		currentWeight,
+		desiredWeight,
+		bloodType,
 		verificationToken,
 	});
 
@@ -47,6 +61,11 @@ const signUp = async (req, res) => {
 			user: {
 				name,
 				email,
+				height,
+				age,
+				currentWeight,
+				desiredWeight,
+				bloodType,
 				verificationToken,
 			},
 		},
