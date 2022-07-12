@@ -10,7 +10,7 @@ const deleteEatenProduct = async (req, res) => {
     {new: true}
   );
 
-  res.status(204);
+  res.status(204).json();
 };
 
 module.exports = deleteEatenProduct;
