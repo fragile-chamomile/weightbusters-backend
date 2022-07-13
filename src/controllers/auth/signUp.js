@@ -41,7 +41,7 @@ const signUp = async (req, res) => {
 		from: "vall.bell91@gmail.com",
 		subject: "Confirm Your Email",
 		html: `<p>By clicking on the following link, you are confirming your email address.</p>
-					<a target="_blank" href="https://health-base-api.herokuapp.com/users/verify/${verificationToken}">Confirm email</a>`,
+					<a target="_blank" href="https://weightbusters-api.herokuapp.com/users/verify/${verificationToken}">Confirm email</a>`,
 	};
 
 	sgMail
