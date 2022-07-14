@@ -1,6 +1,7 @@
 const { Day } = require("../../models/day");
 const { Product } = require("../../models/product");
 const { randomUUID } = require("crypto");
+const { BadRequest } = require("http-errors");
 
 const createDay = async (req, res) => {
   const body = req.body;
@@ -10,6 +11,9 @@ const createDay = async (req, res) => {
   const product = await Product.findOne({
     $or: [{ "title.ua": name }, { "title.ru": name }, { "title.en": name }],
   });
+
+  if (!product) throw new BadRequest('Invalid product name');
+
   const calories = (body.item.weight / 100) * product.calories;
   const existDay = await Day.findOne({ date, owner });
 
