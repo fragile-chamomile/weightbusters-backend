@@ -111,6 +111,11 @@
  *      - bearerAuth: []
  *     summary: Delete eaten product
  *     tags: [Days]
+ *     parameters:
+ *       - name: id
+ *         required: true
+ *         in: path
+ *         description: Product id for delete 
  *     requestBody:
  *       required: true
  *       content:
