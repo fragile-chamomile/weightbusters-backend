@@ -71,21 +71,3 @@
  *       500:
  *         description: Some server error.
  */
-/**
- * @swagger
- * /users/info:
- *   get:
- *     security:
- *      - bearerAuth: []
- *     summary: Get all information about the current user
- *     tags: [Users]
- *     responses:
- *       200:
- *         description: Information found.
- *       401:
- *         description: The user is not authorized or Missing header with authorization token.
- *       404:
- *         description: User not found.
- *       500:
- *         description: Some server error.
- */
