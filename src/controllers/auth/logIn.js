@@ -8,12 +8,19 @@ const { JWT_SECRET_KEY } = process.env;
 const logIn = async (req, res) => {
 	const { email, password } = req.body;
 	const user = await User.findOne({ email });
-	const passCompare = bcrypt.compareSync(password, user.password);
-	if (!user || !passCompare || !user.verify) {
+	if (!user || !user.verify) {
 		throw new Unauthorized(
 			`Email is wrong or not verify, or password is wrong`
 		);
 	}
+
+	const passCompare = bcrypt.compareSync(password, user.password);
+	if (!passCompare) {
+		throw new Unauthorized(
+			`Email is wrong or not verify, or password is wrong`
+		);
+	}
+
 	const payload = {
 		id: user._id,
 	};
