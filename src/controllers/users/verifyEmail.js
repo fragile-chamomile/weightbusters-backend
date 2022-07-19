@@ -12,7 +12,7 @@ const verifyEmail = async (req, res) => {
 		verificationToken: null,
 	});
 
-	res.redirect("https://weightbusters-api.herokuapp.com/api-docs/#/");
+	res.redirect("https://soft-chaja-5962b0.netlify.app/auth/login");
 };
 
 module.exports = verifyEmail;
