@@ -14,6 +14,5 @@ router.post(
 );
 
 router.get("/current", auth, ctrlWrapper(ctrl.getCurrent));
-// router.get("/info", auth, ctrlWrapper(ctrl.getUserInfo));
 
 module.exports = router;
