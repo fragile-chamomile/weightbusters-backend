@@ -3,6 +3,7 @@ const { NotFound, BadRequest } = require("http-errors");
 const sgMail = require("@sendgrid/mail");
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const { EMAIL_SENDER } = process.env;
 
 const reVerification = async (req, res) => {
 	const { email } = req.body;
@@ -15,7 +16,7 @@ const reVerification = async (req, res) => {
 	}
 	const msg = {
 		to: email,
-		from: "vall.bell91@gmail.com",
+		from: "EMAIL_SENDER",
 		subject: "Confirm Your Email",
 		html: `<p>By clicking on the following link, you are confirming your email address.</p>
 					<a target="_blank" href="https://weightbusters-api.herokuapp.com/users/verify/${user.verificationToken}">Confirm email</a>`,

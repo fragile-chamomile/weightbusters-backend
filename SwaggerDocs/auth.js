@@ -43,7 +43,7 @@
  *           description: The user email
  *         password:
  *           type: String
- *           minLength: 6
+ *           minLength: 8
  *           example: example2022
  *           description: The user password
  *         height:
